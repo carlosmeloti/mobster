@@ -1,0 +1,21 @@
+{"empresas":
+[
+	{
+		"id":"1",
+		"razaoSocial":"Insert Solutions Serviços LTDA",
+		"nomeFantasia":"Insert Solutions",
+		"nomeResponsavel":"Rafael Barbosa",
+		"cnpj":"11.222.222/0001-24",
+		"email":"rafael@insertsolutions.com",
+		"telefone":"(91) 2222-2222",
+		"celular":"(91) 2222-2222",
+		"endereco":"Rua Municipalidade 24",
+		"bairro":"Umarizal",
+		"cidade":"Belém",
+		"uf":"PA",
+		"pais":"Brasil",
+		"cep":"66655-444"
+	}
+	
+
+]}

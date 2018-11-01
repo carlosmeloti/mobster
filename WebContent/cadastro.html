@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" ng-app="cadAluModulo"> <!-- ALTERAR -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Mobster Cadastro de Revendedores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar.css" rel="stylesheet">
+
+    <script src="controller/cadastro.js "></script> <!-- ALTERAR -->
+
+
+
+  </head>
+
+  <body ng-controller="cadAluController"> <!-- ALTERAR -->
+    
+    
+    
+   
+
+    
+    <center><h2>Cadastro de Revendedor</h2></center>
+    
+    <br>
+    
+  
+ 
+  <div class="container">
+
+    <form>
+
+        <div class="form-row">
+      <div class="form-group col-md-1">
+                  <label for="id">Id</label>
+                  <input type="text" readonly="readonly" ng-model="cadastro.id" class="form-control" id="id" name="id" >
+                  
+        </div>
+      </div>
+
+       <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Razão Social</label>
+          <input type="text" ng-model="cadastro.razaoSocial" class="form-control" id="razaoSocial" name="razaoSocial"  required>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputEmail4">Nome Fantasia</label>
+          <input type="text" ng-model="cadastro.nomeFantasia" class="form-control" id="nomeFantasia" name="nomeFantasia" >
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputEmail4">Nome - Responsável</label>
+          <input type="text" ng-model="cadastro.nomeResponsavel" class="form-control" id="nomeResponsavel" name="nomeResponsavel"  required>
+        </div>
+        
+       </div>
+
+      <div class="form-row"> 
+        
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">CNPJ</label>
+          <input type="text" ng-model="cadastro.cnpj" name="cpf" maxlength="18" onkeyup="mascara('##.###.###/####-##',this,event,true)" maxlength="18" class="form-control" id="cnpj"  required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" ng-model="cadastro.email" class="form-control" id="email" name="email" >
+        </div>
+        
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">Celular (WhatsApp)</label>
+          <input type="text" ng-model="cadastro.celular" class="form-control" id="celular" name="celular" required>
+        </div>
+     
+      </div>
+     
+      <div class="form-row">
+      
+        <div class="form-group col-md-8">
+          <label for="inputCity">Logradouro</label>
+          <input type="text" ng-model="cadastro.logradouro" class="form-control" id="endereco" name="endereco">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Número</label>
+          <input type="text" ng-model="cadastro.numero" class="form-control" id="bairro" name="bairro">
+        </div>
+
+        
+        <div class="form-group col-md-2">
+          <label for="inputZip">CEP</label>
+          <input type="text" ng-model="cadastro.cep" class="form-control" id="cep" name="cep"  required>
+        </div>
+
+
+      </div>
+      
+      
+      <button type="submit" ng-click="limparCampos()" class="btn btn-success">Limpar</button>
+      <button type="submit" ng-disabled="!cadastro.celular" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+      
+      <br>
+   
+</form>
+</div>
+</div>
+</div>
+</div>
+<div>
+</div>
+   <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+   
+ 
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+
+
+    <!-- SCRIPT FORMAÇÃO CPF -->
+
+
+  <script>
+    function formatar(mascara, documento){
+      var i = documento.value.length;
+      var saida = mascara.substring(0,1);
+      var texto = mascara.substring(i)
+      
+      if (texto.substring(0,1) != saida){
+                documento.value += texto.substring(0,1);
+      }
+      
+    }
+  </script>
+  <script>
+  document.getElementById('celular').addEventListener('input', function (e) {
+	  var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+	  e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+	});
+  </script>
+ <script type="text/javascript">
+ function ResetCampos(){for(var o=document.getElementsByTagName("input"),e=0;e<o.length;e++)"text"==o[e].type&&(o[e].style.backgroundColor="",o[e].style.borderColor="")}function coresMask(o){var e=o.value,r=e.length,t=o.maxLength;0==r?(o.style.borderColor="",o.style.backgroundColor=""):r<t?(o.style.borderColor=corIncompleta,o.style.backgroundColor=corIncompleta):(o.style.borderColor=corCompleta,o.style.backgroundColor=corCompleta)}function mascara(o,e,r,t){var l=e.selectionStart,a=e.value;a=a.replace(/\D/g,"");var s=a.length,c=o.length;window.event?id=r.keyCode:r.which&&(id=r.which),cursorfixo=!1,l<s&&(cursorfixo=!0);var n=!1;if((16==id||19==id||id>=33&&id<=40)&&(n=!0),ii=0,mm=0,!n){if(8!=id)for(e.value="",j=0,i=0;i<c&&("#"==o.substr(i,1)?(e.value+=a.substr(j,1),j++):"#"!=o.substr(i,1)&&(e.value+=o.substr(i,1)),8==id||cursorfixo||l++,j!=s+1);i++);t&&coresMask(e)}cursorfixo&&!n&&l--,e.setSelectionRange(l,l)}var corCompleta="",corIncompleta="";
+ </script>
+  
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{"colaboradores":
+[
+	{
+		"id":"1",
+		"nome":"Rafael Barbosa",
+		"rg":"65464",
+		"cpf":"888.888.888-24",
+		"sexo":"Masculino",
+		"email":"rafael@insertsolutions.com",
+		"telefone":"(91) 2222-2222",
+		"celular":"(91) 2222-2222",
+		"dataNascimento":"22/11/1982",
+		"estadoCivil":"Casado",
+		"nacionalidade":"Brasileiro",
+		"naturalidade":"Belenense",
+		"endereco":"Rua Municipalidade 24",
+		"bairro":"Umarizal",
+		"cidade":"Belém",
+		"uf":"PA",
+		"pais":"Brasil",
+		"cep":"66655-444"
+	}
+	
+
+]}

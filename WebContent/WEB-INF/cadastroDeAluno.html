@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en" ng-app="cadAluModulo"> <!-- ALTERAR -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Sistema de Gestão de Academia - Cadastro de Aluno</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar.css" rel="stylesheet">
+
+    <script src="controller/cadastroDeAluno.js "></script> <!-- ALTERAR -->
+
+
+
+  </head>
+
+  <body ng-controller="cadAluController"> <!-- ALTERAR -->
+    <div ng-include src="'menu.html'"></div>
+   
+
+    
+    <center><h2>Cadastro de Aluno</h2></center>
+
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cadastro</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Treinos</a>
+    
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    
+ <div class="container">
+
+    <form>
+
+        <div class="form-row">
+          <div class="form-group col-md-1">
+                  <label for="id">Id</label>
+                  <input type="text" ng-model="cadastro.id" class="form-control" id="id" name="id" >
+                  
+        </div>
+        </div>
+
+       <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome</label>
+          <input type="text" ng-model="cadastro.nome" class="form-control" id="nome" name="nome"  placeholder="Nome">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome - Responsável</label>
+          <input type="text" ng-model="cadastro.nomeResponsavel" class="form-control" id="nomeResponsavel" name="nomeResponsavel"  placeholder="Nome do responsável">
+        </div>
+        
+       </div>
+
+      <div class="form-row"> 
+        <div class="form-group col-md-2">
+          <label for="inputState">Sexo</label>
+          <select ng-model="cadastro.sexo" id="sexo" name="sexo" class="form-control">
+            <option selected>Escolha...</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputEmail4">RG</label>
+          <input type="text" ng-model="cadastro.rg" class="form-control" id="rg" placeholder="RG">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputPassword4">CPF</label>
+          <input type="text" ng-model="cadastro.cpf" name="cpf" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" class="form-control" id="cpf" placeholder="CPF">
+        </div>
+        <div class="form-group col-md-3">
+        <label for="inputAddress">Data de Nascimento</label>
+        <input type="date" ng-model="cadastro.dataNascimento" class="form-control" id="dataNascimento" placeholder="1234 Main St">
+      </div>
+      <div class="form-group col-md-3">
+          <label for="inputState">Estado Civil</label>
+          <select ng-model="cadastro.estadoCivil" id="estadoCivil" name="estadoCivil" class="form-control">
+            <option selected>Escolha...</option>
+            <option>Solteiro(a)</option>
+            <option>Casado(a)</option>
+            <option>Viuvo(a)</option>
+            <option>Divorciado(a)</option>
+          </select>
+        </div>
+      </div>
+        
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" ng-model="cadastro.email" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">Telefone</label>
+          <input type="text" ng-model="cadastro.telefone" class="form-control" id="telefone" name="telefone" placeholder="(DDD) + Telefone">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">Celular</label>
+          <input type="text" ng-model="cadastro.celular" class="form-control" id="celular" name="celular" placeholder="(DDD) + Celular">
+        </div>
+
+       </div>
+      
+      <div class="form-row">
+        
+           <div class="form-group col-md-4">
+        <label for="inputAddress2">Nacionalidade</label>
+        <input type="text" ng-model="cadastro.nacionalidade" class="form-control" id="nacionalidade" name="nacionalidade" placeholder="Nacionalidade">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputAddress2">Naturalidade</label>
+        <input type="text" ng-model="cadastro.naturalidade" class="form-control" id="naturalidade" name="naturalidade" placeholder="Naturalidade">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputAddress2">Profissão</label>
+        <input type="text" ng-model="cadastro.profissao" class="form-control" id="profissao" name="profissao" placeholder="Profissão">
+      </div>
+
+     
+
+      </div>
+      <div class="form-row">
+      
+        <div class="form-group col-md-3">
+          <label for="inputCity">Endereço</label>
+          <input type="text" ng-model="cadastro.endereco" class="form-control" id="endereco" name="endereco" placeholder="Endereço + Número">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Bairro</label>
+          <input type="text" ng-model="cadastro.bairro" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="inputZip">Cidade</label>
+          <input type="text" ng-model="cadastro.cidade" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputState">UF</label>
+            <select  ng-model="cadastro.uf" id="uf" name="uf" class="form-control">
+              <option selected>--</option>
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+          </select>
+        </div>  
+        <div class="form-group col-md-2">
+          <label for="inputZip">País</label>
+          <input type="text" ng-model="cadastro.pais" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">CEP</label>
+          <input type="text" ng-model="cadastro.cep" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+        </div>
+
+
+      </div>
+      
+      
+      <button type="submit" ng-click="limparCampos()" class="btn btn-success">Novo</button>
+      <button type="submit" ng-disabled="!cadastro.nome" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+      <button type="submit" ng-click="excluir()"  class="btn btn-danger">Excluir</button>
+      <br>
+      
+      <div class="form-group">
+        <br>
+        <input type="text" ng-model="pesquisaCadastro" class="form-control" id="pesquisa" name="pesquisa" placeholder="Pesquisar">
+      </div>
+      
+</form>
+
+<table class="table table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Responsável</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">RG</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Nascimento</th>
+      <th scope="col">Est. Civil</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Nacionalidade</th>
+      <th scope="col">Naturalidade</th>
+      <th scope="col">Profissão</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Estado</th>
+      <th scope="col">País</th>
+      <th scope="col">CEP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="cadAluTabela in cadastrosAluno | filter:pesquisaCadastro" ng-click="selecionaAluCol(cadAluTabela)">
+      
+      <td>{{cadAluTabela.id}}</td>
+      <td>{{cadAluTabela.nome}}</td>
+      <td>{{cadAluTabela.responsavel}}</td>
+      <td>{{cadAluTabela.sexo}}</td>
+      <td>{{cadAluTabela.rg}}</td>
+      <td>{{cadAluTabela.cpf}}</td>
+      <td>{{cadAluTabela.dataNascimento}}</td>
+      <td>{{cadAluTabela.estadoCivil}}</td>
+      <td>{{cadAluTabela.email}}</td>
+      <td>{{cadAluTabela.telefone}}</td>
+      <td>{{cadAluTabela.celular}}</td>
+      <td>{{cadAluTabela.nacionalidade}}</td>
+      <td>{{cadAluTabela.naturalidade}}</td>
+      <td>{{cadAluTabela.profissao}}</td>
+      <td>{{cadAluTabela.endereco}}</td>
+      <td>{{cadAluTabela.bairro}}</td>
+      <td>{{cadAluTabela.cidade}}</td>
+      <td>{{cadAluTabela.uf}}</td>
+      <td>{{cadAluTabela.pais}}</td>
+      <td>{{cadAluTabela.cep}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
+
+
+
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <br>
+   
+        <div class="container">
+            
+
+            <form>
+              
+             <div class="form-row">
+              <div class="form-group col-md-6">
+		        <label for="inputAddress">Data Treino</label>
+		        <input type="date" ng-model="cadastro.dataTreino" class="form-control" id="dataTreino" placeholder="1234 Main St">
+		      </div>
+			 
+     		<div class="form-group col-md-6">
+          <label for="inputState">Modalidade</label>
+          <select class="form-control" ng-model="cadastro.modalidade" ng-options="modalidade.nomeModalidade for modalidade in cadastrosModalidade track by modalidade.id">
+            
+          </select>
+        </div>
+
+        
+            </div>
+
+            <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputEmail4">Descrição</label>
+           <textarea class="form-control" row="3" ng-model="cadastro.descricao" class="form-control" id="descricao" name="descricao" placeholder="Descrição"> </textarea>
+
+        </div>
+      </div>
+            
+   
+<br>
+
+      </div>
+      
+      <div class="container">
+      <button type="submit" ng-click="limparCampos()" class="btn btn-success">Novo</button>
+      <button type="submit" ng-click="salvar()" class="btn btn-primary">Salvar</button>
+      <button type="submit" ng-click="excluir()"  class="btn btn-danger">Excluir</button>
+      
+     <div class="form-group">
+        <br>
+        <input type="text" ng-model="pesquisaCadastro" class="form-control" id="pesquisa" name="pesquisa" placeholder="Pesquisar">
+
+      </div>
+      <div class="container">
+
+
+        <table class="table table-striped table-hover" style="padding-left: 320px">
+       <thead>
+           <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Data Treino</th>
+          <th scope="col">Modalidade</th>
+          <th scope="col">Descrição</th>
+         
+      
+          </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="cadConvTabela in cadastrosConvenio | filter:pesquisaCadastro" ng-click="selecionaConvCol(cadConvTabela)">
+      
+      <td>{{cadConvTabela.id}}</td>
+      <td>{{cadConvTabela.dataTreino}}</td>
+      <td>{{cadConvTabela.modalidade.nomeModalidade}}</td>
+      <td>{{cadConvTabela.descricao}}</td>
+     
+    </tr>
+
+  </tbody>
+</table>
+
+     </div>
+      
+      </form>
+    
+            
+      </div>
+    
+      </div>
+
+      
+</div>
+
+
+
+ 
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+ 
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+
+
+    <!-- SCRIPT FORMAÇÃO CPF -->
+
+
+  <script>
+    function formatar(mascara, documento){
+      var i = documento.value.length;
+      var saida = mascara.substring(0,1);
+      var texto = mascara.substring(i)
+      
+      if (texto.substring(0,1) != saida){
+                documento.value += texto.substring(0,1);
+      }
+      
+    }
+  </script>
+
+
+  </body>
+</html>
